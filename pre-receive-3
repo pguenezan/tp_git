@@ -82,7 +82,7 @@ for branch in branchs[:-1]:
 
 build_tree()
 if check(root):
-    printOutput('flag = TO DO')
+    printOutput('flag = emhedpzejjzm')
 else:
     printOutput('Soumission refusée, try again !')
 
