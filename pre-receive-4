@@ -1,0 +1,103 @@
+#!/usr/bin/env python3
+
+import sys
+import os
+
+FORMAT = ' --pretty=format:"%H#%P#%s"'
+
+commits = {}
+root = None
+
+hashs = ['5487d5a6449afef963a424d21a6ab6be94fdd488',
+         'ee46a23d8dde1108da36293d4ed590db75dd7573',
+         '48a0ca1347b0f7618f7362627abd94d7b91c7956',
+         '6a49b405c04750bde68fd93f60315b0c4e3f0b1d']
+
+class Commit:
+    def __init__(self, c_hash, p_hash, msg, branch):
+        if c_hash in commits:
+            return
+        self.c_hash = c_hash
+        self.p_hash = p_hash
+        self.msg = msg
+        self.branch = branch
+        self.child = []
+        commits[c_hash] = self
+
+def parse_commit(log, ref):
+    for commit in log.split('\n'):
+        if len(commit) is 0:
+            continue
+        if commit.find('##') == 40:
+            p_hash = None
+            msg = commit[42:]
+        else:
+            p_hash = commit[41:][:40]
+            msg = commit[82:]
+        c_hash = commit[:40]
+        Commit(c_hash, p_hash, msg, ref)
+
+def build_tree():
+    for commit in commits.values():
+        if commit.p_hash == None:
+            global root
+            root = commit
+        else:
+            commits[commit.p_hash].child.append(commit.c_hash)
+
+def check(commit):
+    for i in range(1, 7):
+        if commit.msg != "Commit " + str(i):
+            return False
+        if i <= 4:
+            if commit.c_hash != hashs[i - 1]:
+                return False
+        if i == 2:
+            if len(commit.child) > 2:
+                return False
+        elif i == 6:
+            if len(commit.child) != 0:
+                return False
+        else:
+            if len(commit.child) != 1:
+                return False
+        if i == 2:
+            for c in commit.child:
+                if commits[c].branch == 'refs/heads/master':
+                    commit = commits[c]
+                    break
+        elif i != 6:
+            commit = commits[commit.child[0]]
+    return True
+        
+
+def printOutput(msg):
+    print('/' + ('-' * 40) + '\\')
+    print('|' + (' ' * 40) + '|')
+    l = 40 - len(msg)
+    ll = l // 2
+    lr = l // 2
+    if l % 2 == 1:
+        ll += 1
+    print('|' + (' ' * ll) + msg + (' ' * lr) + '|')
+    print('|' + (' ' * 40) + '|')
+    print('\\' + ('-' * 40) + '/')
+
+    
+branchs = sys.stdin.read().split('\n')
+for branch in branchs[:-1]:
+    oldrev, newrev, refname = branch.split(' ')
+    if oldrev == ('0' * 40):
+        oldrev = ''
+    else:
+        oldrev += '..'
+    parse_commit(os.popen('git log ' + oldrev + newrev + FORMAT).read(), refname)
+    parse_commit(os.popen('git log' + FORMAT).read(), refname)
+
+build_tree()
+if check(root):
+    printOutput('flag = unqphluzurns')
+else:
+    printOutput('Soumission refusée, try again !')
+
+sys.exit(1)
