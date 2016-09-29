@@ -32,11 +32,11 @@ C'est très utile pour travailler à plusieurs sur un projet.
 
 ## Soumission d'exercice
 
-Pour soumettre n'importe quel exercice utilisez la commande `git push --all`.
+Pour soumettre n'importe quel exercice utilisez la commande `git push --all`
 
 Vous pouvez récupérer le flag est le rentrer ici : `http://ctf.bfor.ovh/`
 
-Si la soumission est refusée alors exécutez `git reset --hard origin/master` pour chacune des branches.
+Si la soumission est refusée, et que vous voulez recommencer, alors exécutez `git reset --hard origin/master`
 
 ## Premier pas !
 
@@ -92,4 +92,7 @@ git clone git@git.bfor.ovh:exercice4.git
 cd exercice4
 ```
 
-To do...
+Pour cet exercice, vous devrais remettre les commits dans le bon ordre et
+mettre tous les commits sur une `master`.
+
+Pour cela la commande `git rebase` sera très utile !
