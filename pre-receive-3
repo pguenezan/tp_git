@@ -45,8 +45,8 @@ def check(commit):
         return False
     if len(commit.child) != 2:
         return False
-    child1 = commits[commit.child[0]]
-    child2 = commits[commit.child[1]]
+    child1 = commits[commit.child[1]]
+    child2 = commits[commit.child[0]]
     if child1.branch != 'refs/heads/fix':
         return False
     if child2.branch != 'refs/heads/master':
