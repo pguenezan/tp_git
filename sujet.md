@@ -25,10 +25,11 @@ il permet d'identifier la personne qui a produit le commit.
 Les branches vont vous permettre de développer sans affecter directement le projet. 
 C'est très utile pour travailler à plusieurs sur un projet.
 
-* ```git branch``` Affiches les branches, vous pouvez voir où vous êtes.
-* ```git branch [branch_name]``` Créer une nouvelle branche.
+* ```git branch``` Affiche les branches, vous pouvez voir où vous êtes.
+* ```git branch [branch_name]``` Crée une nouvelle branche.
 * ```git checkout [branch_name]``` Vous déplace sur une autre branche. 
 * ```git merge [branche_1] [branche_2]``` Fusionne la branche 2 sur la branche 1.
+* ```git rebase [branche_1] [branche_2``` Prend les modifications d'une branche et les rejoue sur une autre. 
 
 ## Soumission d'exercice
 
@@ -38,7 +39,7 @@ Vous pouvez récupérer le flag est le rentrer ici : `http://ctf.bfor.ovh/`
 
 Si la soumission est refusée, et que vous voulez recommencer, alors exécutez `git reset --hard origin/master`
 
-## Premier pas !
+## Premier pas
 
 ```
 git clone git@git.bfor.ovh:exercice1.git
@@ -81,6 +82,7 @@ Vous pouvez maintenant soumettre votre code.
 ```
 git clone git@git.bfor.ovh:exercice3.git
 cd exercice3
+git fetch origin fix:fix
 ```
 
 Le but de cet exercice est simple il faut fusionner la branche `fix` à la branche `master`.
@@ -90,9 +92,20 @@ Le but de cet exercice est simple il faut fusionner la branche `fix` à la branc
 ```
 git clone git@git.bfor.ovh:exercice4.git
 cd exercice4
+git fetch origin unstable:unstable
 ```
 
 Pour cet exercice, vous devrais remettre les commits dans le bon ordre et
 mettre tous les commits sur une `master`.
 
 Pour cela la commande `git rebase` sera très utile !
+
+## L'historique
+
+```
+git clone git@git.bfor.ovh:exercice5.git
+cd exercice5
+```
+
+Vous savez faire des commits, très bien ! Mais il peut etre utile de regarder l'historique des commits.
+Vous devez donc chercher le *flag* qui se trouve dans le message d'un ancien commit.
