@@ -109,3 +109,13 @@ cd exercice5
 
 Vous savez faire des commits, très bien ! Mais il peut etre utile de regarder l'historique des commits.
 Vous devez donc chercher le *flag* qui se trouve dans le message d'un ancien commit.
+
+## Accusation
+
+```
+git clone git@git.bfor.ovh:exercice6.git
+cd exercice6
+```
+
+Lorsqu'on trouve un bug il arrive de vouloir trouver un responsable !
+Dans cet exercice vous devez trouver le nom (le flag) de la personne ayant inseré le bug.
