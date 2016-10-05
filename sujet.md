@@ -5,6 +5,9 @@
 Bienvenue à ce TP GIT !
 
 Nous allons commencer par vous rappeler quelques commandes de bases.
+Mais avant tout voici **la** commande à connaitre !
+
+* ```git help <cmd>``` Affiche le manuel d'utilisation d'une commande.
 
 #### Configuration
 
@@ -30,6 +33,11 @@ C'est très utile pour travailler à plusieurs sur un projet.
 * ```git checkout [branch_name]``` Vous déplace sur une autre branche. 
 * ```git merge [branche_1] [branche_2]``` Fusionne la branche 2 sur la branche 1.
 * ```git rebase [branche_1] [branche_2``` Prend les modifications d'une branche et les rejoue sur une autre. 
+
+### Commandes supplémentaires
+
+* ```git log``` Affiche l'historique des commits.
+* ```git blame [file] -L <start>,<end>``` Affiche le nom de la personne qui à modifié pour le fichier. 
 
 ## Soumission d'exercice
 
