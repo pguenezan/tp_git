@@ -118,7 +118,7 @@ cd exercice5
 Vous savez faire des commits, très bien ! Mais il peut etre utile de regarder l'historique des commits.
 Vous devez donc chercher le *flag* qui se trouve dans le message d'un ancien commit.
 
-## Accusation
+## J'accuse…!
 
 ```
 git clone git@git.bfor.ovh:exercice6.git
