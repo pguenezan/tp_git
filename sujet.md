@@ -130,8 +130,6 @@ Dans cet exercice vous devez trouver le nom (le flag) de la personne ayant inser
 
 ## Des dissidents
 
-Des dissidents
-
 ```
 git clone git@git.bfor.ovh:exercice7.git
 cd exercice7
@@ -141,3 +139,13 @@ git fetch origin fix:fix
 Vous allez devoir merge la branche `fix` à `master`. 
 Cependant il y a eu des commits en parallèle de `fix` qui édite les mêmes éléments.
 Il faudra donc gérer les conflits !
+
+## Retour vers le futur !
+
+```
+git clone git@git.bfor.ovh:exercice8.git
+cd exercice8
+```
+
+Chaque groupe de projet à un boulé, celui-ci aura tendance à commit du code bugué !
+Vous allez devoir annuler des commits pour revenir à une version stable.
