@@ -29,7 +29,7 @@ Les branches vont vous permettre de développer sans affecter directement le pro
 C'est très utile pour travailler à plusieurs sur un projet.
 
 * ```git branch``` Affiche les branches, vous pouvez voir où vous êtes.
-* ```git branch [branch_name]``` Crée une nouvelle branche.
+* ```git branch [branch_name]``` Créé une nouvelle branche.
 * ```git checkout [branch_name]``` Vous déplace sur une autre branche. 
 * ```git merge [branche_1] [branche_2]``` Fusionne la branche 2 sur la branche 1.
 * ```git rebase [branche_1] [branche_2``` Prend les modifications d'une branche et les rejoue sur une autre. 
@@ -127,3 +127,17 @@ cd exercice6
 
 Lorsqu'on trouve un bug il arrive de vouloir trouver un responsable !
 Dans cet exercice vous devez trouver le nom (le flag) de la personne ayant inseré le bug.
+
+## Des dissidents
+
+Des dissidents
+
+```
+git clone git@git.bfor.ovh:exercice7.git
+cd exercice7
+git fetch origin fix:fix
+```
+
+Vous allez devoir merge la branche `fix` à `master`. 
+Cependant il y a eu des commits en parallèle de `fix` qui édite les mêmes éléments.
+Il faudra donc gérer les conflits !
